@@ -61,7 +61,7 @@ class TestBooksCollector:
         collector.set_book_genre('Десять негретят', 'Детективы')
         assert collector.get_books_with_specific_genre('Детективы') == ['Восточный экспресс', 'Десять негретят']
     
-
+    # Проверяем, что можно получить список книг, состоящий из двух книг
     def test_get_books_genre_of_two_books(self):
         collector = BooksCollector()
         collector.add_new_book('Гордость и предубеждение и зомби')
@@ -70,7 +70,7 @@ class TestBooksCollector:
         collector.set_book_genre('Восточный экспресс', 'Детективы')
         assert collector.get_books_genre() == {'Гордость и предубеждение и зомби' : 'Ужасы', 'Восточный экспресс' : 'Детективы'}
 
-
+    # Проверяем, что можно получить список, разрещенный детям
     def test_get_books_for_children_two_books_got_one_book_mult(self):
         collector = BooksCollector()
         collector.add_new_book('Золушка')
@@ -79,7 +79,7 @@ class TestBooksCollector:
         collector.set_book_genre('Восточный экспречч', 'Детективы')
         assert collector.get_books_for_children() == ['Золушка']
 
-
+    # Проверяем, что можно добавить книгу в избранное
     def test_add_book_in_favorites_one_book_added_to_favorite(self):
         collector = BooksCollector()
         collector.add_new_book('Гордость и предубеждение и зомби')
@@ -91,6 +91,7 @@ class TestBooksCollector:
         collector.add_book_in_favorites('Восточный экспресс')
         assert 'Восточный экспресс' in collector.favorites
 
+    #Проверяем, что можно удалить книгу из избравнного
     def test_delete_book_from_favorites_was_deleted_one_book(self):
         collector = BooksCollector()
         collector.add_new_book('Гордость и предубеждение и зомби')
@@ -103,6 +104,7 @@ class TestBooksCollector:
         collector.delete_book_from_favorites('Восточный экспресс')
         assert len(collector.favorites) == 0
 
+    # Провеяем, что можно получить список избранных
     def test_get_list_of_favorites_books_got_list(self):
         collector = BooksCollector()
         collector.add_new_book('Гордость и предубеждение и зомби')
